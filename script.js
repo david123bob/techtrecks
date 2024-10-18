@@ -8,5 +8,7 @@ async function fetchData(){
     document.getElementById("output").innerHTML = message;
 }
 
+
+
 //Calls api
 fetchData();

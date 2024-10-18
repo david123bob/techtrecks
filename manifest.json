@@ -1,4 +1,5 @@
 {
+  "manifest_version":3,
   "name":"Food analyzer",
   "version":"1.0.0",
   "description": "this is a extension to get data on the food/items that you buy",
@@ -9,6 +10,9 @@
       "js":["script.js"]
     }
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action":{
     "default_popup":"index.html",
     "default.title":"Food analyzer"
