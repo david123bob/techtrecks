@@ -3,12 +3,7 @@
 //Taking the ingredients list then it might use finally another API to get info on these ingredeints and if they are hamrful it will let user know
 //We can also use calory tracker, if its organic etc. 
 
-async function fetchData(){
-    var message = "Hello, this is your output from JavaScript!";
-    document.getElementById("output").innerHTML = message;
-}
+console.log("intialized script")
+let pageTitle = document.querySelector('title').innerText;
 
-
-
-//Calls api
-fetchData();
+chrome.runtime.sendMessage({pageTitle: pageTitle})
