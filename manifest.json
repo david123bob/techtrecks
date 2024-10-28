@@ -4,9 +4,10 @@
   "version":"1.0.0",
   "description": "this is a extension to get data on the food/items that you buy",
   "author":"me",
+  "permissions":["storage","tabs"],
   "content_scripts":[
     {
-      "matches":["https://www.amazon.com/*"],
+      "matches":["https://*.amazon.com/*", "https://amazon.com/*"],
       "js":["script.js"]
     }
   ],
@@ -15,6 +16,11 @@
   },
   "action":{
     "default_popup":"popup.html",
-    "default.title":"Food analyzer"
+    "default_title":"Food analyzer",
+    "default_icon":{
+      "16":"logo.png",
+      "48":"logo.png",
+      "128":"logo.png"
+    }
   }
 }

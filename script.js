@@ -2,8 +2,24 @@
 //With the info it might use another API to get information about the product like ingeridents etc.
 //Taking the ingredients list then it might use finally another API to get info on these ingredeints and if they are hamrful it will let user know
 //We can also use calory tracker, if its organic etc. 
+console.log("Content script loaded");
+(()=> {
+let currentAmazon=""
+chrome.runtime.onMessage.addListener((obj, sender, response)=> {
+    const{type, value, amazonID}=obj;
+    console.log("NotNew");
+    if(type=="NEW"){
+        currentAmazon=amazonID;
+        console.log("Working");
+        newAmazon();
+    }
+});
 
-console.log("intialized script")
-let pageTitle = document.querySelector('title').innerText;
+const newAmazon=()=>{
+    const amazonBtnExists=document.getElementsByClassName("amazon-btn")[0];
 
-chrome.runtime.sendMessage({pageTitle: pageTitle})
+    console.log(amazonBtnExists);
+
+} 
+
+})();
