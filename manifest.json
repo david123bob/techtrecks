@@ -4,7 +4,7 @@
   "version":"1.0.0",
   "description": "this is a extension to get data on the food/items that you buy",
   "author":"me",
-  "permissions":["storage","tabs"],
+  "permissions":["storage","tabs","activeTab"],
   "content_scripts":[
     {
       "matches":["https://*.amazon.com/*", "https://amazon.com/*"],
