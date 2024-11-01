@@ -7,27 +7,30 @@ console.log("Content script loaded");
 let currentAmazon=""
 chrome.runtime.onMessage.addListener((obj, sender, response)=> {
     const{type, value, amazonID}=obj;
-    console.log("NotNew");
     if(type=="NEW"){
         currentAmazon=amazonID;
-        console.log("Working");
         newAmazon();
     }
 });
 
+//If the tab was open what code do we run
 const newAmazon=()=>{
-    const amazonBtnExists=document.getElementsByClassName("amazon-btn")[0];
+    //gets the ingredient list
+    const myDiv = document.getElementById("nic-ingredients-content");
+    const spanElement = myDiv.querySelector("span");
+    console.log(spanElement);
+    console.log(spanElement.textContent);
 
-    console.log(amazonBtnExists);
+    //gets the name of product
 
+
+    //Sends the information to background.js
+    if(spanElement){
+        const productIngredients=spanElement.textContent;
+        chrome.runtime.sendMessage({type:"ANALYZE_PRODUCT", productIngredients:productIngredients})
+    }
+
+    
 } 
 
 })();
-
-(()=> {
-    chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
-    let tab = tabs[0];
-    document.getElementById("title").innerText = tab.title;
-  });
-
-});
