@@ -31,8 +31,6 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         //We change the html
         document.getElementById("ingredientList").textContent = upcNumber; // assuming you have an element to show the result
         document.getElementById("result").textContent=analysisResult;
-
-        
     }
 });
 

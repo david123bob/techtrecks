@@ -45,3 +45,19 @@ const newAmazon=()=>{
 } 
 
 })();
+
+/*function for getting the url, call fetch from newAmazon()*/
+let url_prefix = "https://world.openfoodfacts.net/api/v2/product/"; // concatenate upc to the end
+{
+    async function fetchAsync (url) {
+        let response = await fetch(url);
+        let data = await response.json();
+        return data;
+    }
+
+    let data = fetchAsync(url)
+
+    data.then(function(result) {
+        console.log(result);
+    })
+}
