@@ -18,14 +18,16 @@ chrome.tabs.onUpdated.addListener((tabID,changeInfo,tab)=>{
         }
    }
 );
+
 //This code listens to any messages that are send through the code
 chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
     if(request.type=="ANALYZE_PRODUCT"){
-        const productIngredients=request.productIngredients;
+        const upcNumber=request.upcNumber;
+        console.log(upcNumber)
         //Lets say we have finished analyizing it We can send it back to script
         const analysisResult="Pretend I am some other finished analyized result";
         //Code below to send back result
         //sendResponce({result: analysisResult})
-        chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", productIngredients: productIngredients, analysisResult:analysisResult });
+        chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });
     }
 });
