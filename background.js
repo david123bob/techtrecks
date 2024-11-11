@@ -28,6 +28,7 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         data.then(function(result) {
         console.log(result);
         })
+        parseJson(result);
         //Lets say we have finished analyizing it We can send it back to script
         const analysisResult="Pretend I am some other finished analyized result";
         //Code below to send back result
@@ -36,11 +37,16 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
     }
 });
 async function fetchAsync (url) {
-        let response = await fetch(url);
-        let data = await response.json();
-        return data;
+    let response = await fetch(url);
+    let data = await response.json();
+    return data;
 }
 
+async function parseJson(jsonData) {
+    let s = jsonData.allergens_from_ingredients;
+    console.log.("parsing json");
+    console.log(s);
+}
 
 
 
