@@ -42,7 +42,7 @@ async function fetchAsync (url) {
     return data;
 }
 
-async function parseJson(jsonData) {
+function parseJson(jsonData) {
     let s = jsonData.allergens_from_ingredients;
     console.log.("parsing json");
     console.log(s);
