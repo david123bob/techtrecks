@@ -31,6 +31,10 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         //sendResponce({result: analysisResult})
         chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });
     }
+    else if (request.type=="UPC_NOT_FOUND"){
+        console.log("Requested UPC number was not found, aborting");
+    }
+
 });
 
 async function fetchAsync (url) {
