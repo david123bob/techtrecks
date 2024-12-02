@@ -10,10 +10,6 @@ chrome.tabs.onUpdated.addListener((tabID,changeInfo,tab)=>{
             amazonID:urlParameters.get("v"),
             
         });
-
-
-
-
         }
    }
 );
@@ -26,9 +22,9 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         let url = "https://world.openfoodfacts.net/api/v2/product/"+upcNumber; // concatenate upc to the end
         let data = fetchAsync(url);
         data.then(function(result) {
-        console.log(result);
+            console.log(result);
+            console.log(result.allergens_from_ingredients);
         })
-        parseJson(result);
         //Lets say we have finished analyizing it We can send it back to script
         const analysisResult="Pretend I am some other finished analyized result";
         //Code below to send back result
@@ -36,6 +32,7 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });
     }
 });
+
 async function fetchAsync (url) {
     let response = await fetch(url);
     let data = await response.json();
