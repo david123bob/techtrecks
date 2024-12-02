@@ -1,5 +1,5 @@
 body {
-    background-color: transparent;
+    background-color: white;
     width: 300px;
     height: 400px;
     margin: 0;
@@ -8,7 +8,28 @@ body {
     justify-content: center;
     align-items: center;
   }
+
+
   
+  body div h2 {
+    padding: 30px;
+  }
+
+  @font-face {
+    font-family: proxima;
+    src: url("../fonts/proximabold.otf");
+  }
+
+  top-header {
+    font-family: proxima;
+    font-size: 20px;
+    width: 300px;
+    height: 60px;
+  }
+  
+  .text {
+    padding: 30px;
+  }
   .rectangle {
     width: 100%;
     height: 100%;
