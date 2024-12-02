@@ -22,8 +22,8 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         let url = "https://world.openfoodfacts.net/api/v2/product/"+upcNumber; // concatenate upc to the end
         let data = fetchAsync(url);
         data.then(function(result) {
-            console.log(result);
-            console.log(result.allergens_from_ingredients);
+            //get ingredient information
+            console.log(result.product.allergens);
         })
         //Lets say we have finished analyizing it We can send it back to script
         const analysisResult="Pretend I am some other finished analyized result";
@@ -37,12 +37,6 @@ async function fetchAsync (url) {
     let response = await fetch(url);
     let data = await response.json();
     return data;
-}
-
-function parseJson(jsonData) {
-    let s = jsonData.allergens_from_ingredients;
-    console.log.("parsing json");
-    console.log(s);
 }
 
 
