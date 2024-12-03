@@ -31,14 +31,11 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
                     allergens:parse_allergens(result.product.allergens),
                     nova:result.product.nova_group
                 };
+
             //Code below to send back result
             //sendResponce({result: analysisResult})
             chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });
         })
-    }
-    //if we are called here but the UPC was not found
-    else if (request.type=="UPC_NOT_FOUND"){
-        console.log("Requested UPC number was not found, aborting");
     }
 });
 

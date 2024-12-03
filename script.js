@@ -40,9 +40,6 @@ const newAmazon=()=>{
     if(upcNumber){
         chrome.runtime.sendMessage({type:"ANALYZE_PRODUCT", upcNumber:upcNumber});
     }
-    else {
-        chrome.runtime.sendMessage({type:"UPC_NOT_FOUND"});
-    }
 } 
 
 })();
