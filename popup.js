@@ -1,7 +1,6 @@
 //This prints the title of the Amazon Stuff
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
     let tab = tabs[0];
-    document.getElementById("title").innerText = tab.title;
   });
 
 
