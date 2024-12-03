@@ -5,7 +5,6 @@
 //With the info it might use another API to get information about the product like ingeridents etc.
 //Taking the ingredients list then it might use finally another API to get info on these ingredeints and if they are hamrful it will let user know
 //We can also use calory tracker, if its organic etc. 
-console.log("Content script loaded");
 (()=> {
 let currentAmazon=""
 chrome.runtime.onMessage.addListener((obj, sender, response)=> {
@@ -36,7 +35,6 @@ const newAmazon=()=>{
             }
         }
     });
-    console.log("UPC Number:", upcNumber);
 
     //Sends the information to background.js
     if(upcNumber){

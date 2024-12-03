@@ -2,8 +2,8 @@
   "manifest_version":3,
   "name":"Food analyzer",
   "version":"1.0.0",
-  "description": "this is a extension to get data on the food/items that you buy",
-  "author":"me",
+  "description": "This is a extension to get data on the food/items that you buy",
+  "author":"David Hao, Aimee Yu, Arthur Du",
   "permissions":["storage","tabs","activeTab"],
   "content_scripts":[
     {

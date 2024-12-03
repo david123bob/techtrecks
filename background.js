@@ -24,18 +24,35 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
         data.then(function(result) {
             //get ingredient information
             console.log(result.product.allergens);
+
+            //Lets say we have finished analyizing it We can send it back to script
+            const analysisResult= 
+                {
+                    allergens:parse_allergens(result.product.allergens),
+                    nova:result.product.nova_group
+                };
+            //Code below to send back result
+            //sendResponce({result: analysisResult})
+            chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });
         })
-        //Lets say we have finished analyizing it We can send it back to script
-        const analysisResult="Pretend I am some other finished analyized result";
-        //Code below to send back result
-        //sendResponce({result: analysisResult})
-        chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });
     }
+    //if we are called here but the UPC was not found
     else if (request.type=="UPC_NOT_FOUND"){
         console.log("Requested UPC number was not found, aborting");
     }
-
 });
+
+//simple parse for the string returned from API
+function parse_allergens(message) {
+    let arr =[];
+    let sfx = ""
+    for(const s of message.split(",")){
+        sfx = s.split(":")[1];
+        const caps=sfx?sfx[0].toUpperCase()+sfx.slice(1):"";
+        arr.push(caps);
+    }
+    return arr;
+}
 
 async function fetchAsync (url) {
     let response = await fetch(url);
