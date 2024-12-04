@@ -31,7 +31,6 @@ chrome.runtime.onMessage.addListener((request,sender,sendResponse)=>{
                     allergens:parse_allergens(result.product.allergens),
                     nova:result.product.nova_group
                 };
-
             //Code below to send back result
             //sendResponce({result: analysisResult})
             chrome.runtime.sendMessage({ type: "FINISH_ANALYSIS", upcNumber: upcNumber, analysisResult:analysisResult });

@@ -6,6 +6,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 
 //Loads the data from the storage if avalible if not do nothing
 
+/*
 document.addEventListener("DOMContentLoaded", function() {
     const storedAnalysisResult = localStorage.getItem("analysisResult");
     const storedupcNumber = localStorage.getItem("upcNumber");
@@ -15,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("result").textContent = storedAnalysisResult;
     }
 });
-
+*/
 
 
   //This gets request that should be send from background and gets all the info and updates the popuphtml. THis part is for when the first website is opened
