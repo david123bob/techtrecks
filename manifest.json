@@ -22,5 +22,11 @@
       "48":"logo.png",
       "128":"logo.png"
     }
+  },
+  "web_accessible_resources": [
+  {
+    "resources": ["lib/bootstrap.bundle.js", "lib/bootstrap.min.css"],
+    "matches": ["<all_urls>"]
   }
+]
 }
