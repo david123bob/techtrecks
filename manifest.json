@@ -15,7 +15,7 @@
     "service_worker": "background.js"
   },
   "action":{
-    "default_popup":"popup.html",
+    "default_popup":"home.html",
     "default_title":"Food analyzer",
     "default_icon":{
       "16":"logo.png",

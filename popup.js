@@ -35,8 +35,8 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
         nova = analysisResult.nova;
 
         //We change the html
-        document.getElementById("allergen_info").append(format_allergens(allergens));
-        document.getElementById("process_info").append(nova);
+        //document.getElementById("allergen_info").append(format_allergens(allergens));
+        //document.getElementById("process_info").append(nova);
     }
 });
 
